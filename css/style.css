@@ -223,39 +223,9 @@ nav ul li.current a {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-.mobile-bar.active span {
-  background-color: transparent;
-}
-.mobile-bar span:after,
-.mobile-bar span:before {
-  position: absolute;
-  content: "";
-  width: 35px;
-  height: 3px;
-  background: #000;
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-.mobile-bar span:after {
-  top: 8px;
-}
-.mobile-bar span:before {
-  top: -8px;
-}
-.mobile-bar.active span:after {
-  top: 0px;
-  width: 30px;
-  -webkit-transform: rotate(40deg);
-  transform: rotate(40deg);
-}
-.mobile-bar.active span:before {
-  top: 0px;
-  width: 30px;
-  -webkit-transform: rotate(-40deg);
-  transform: rotate(-40deg);
-}
+
+
+
 
 /* Intro
 ==================================================*/
