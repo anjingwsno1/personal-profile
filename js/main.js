@@ -38,32 +38,9 @@
     });
 
 
-	//======= SMOOTH SCROLL ========//
-    $('.nav-menu li a,.down').on('click', function(e){
-		var anchor = $(this);
-		if( anchor == 'undefined' || anchor == null || anchor.attr('href') == '#' ) 
-			{ return; }
-		if ( anchor.attr('href').indexOf('#') === 0 )
-		{
-			if( $(anchor.attr('href')).length )
-			{
-				$('html, body').stop().animate( { scrollTop: $(anchor.attr('href')).offset().top - 70 }, 750);					
-			}
-			e.preventDefault();
-		}
-	});
 
 
     //======= PROGRESS BAR  ========//
-	$('.progress-bar-style').each(function() {
-		var progress = $(this).data("progress");
-		var prog_width = progress+'%';
-		if (progress <= 100) {
-			$(this).append('<div class="bar-inner" style="width:'+prog_width+'"><span>'+prog_width+'</span></div>');
-		}else{
-			$(this).append('<div class="bar-inner" style="width:100%"><span>'+prog_width+'</span></div>');
-		}
-	});
 
 
 	//======= ISOTOP FILTERING JS  ========//
@@ -92,17 +69,6 @@
 	});
 
 
-	//======= MAGNIDIC POPUP JS  ========//
-	$('.work-zoom').magnificPopup({
-		type:'inline'
-    });
-    $('.link').magnificPopup({
-        type:'image',
-        gallery:{enabled:true},
-        zoom:{enabled: true, duration: 300}
-    });
-
-
 	//======= Testinonial CAROUSEL  ========//
      $(".testinonial-carousel").owlCarousel({
         loop: true,
@@ -120,46 +86,6 @@
 			1170:{items:6,},
 		}
     });
-
-  
-	//======= Contact Form ========//
-	$('#contact-form').on('submit', function(e) {
-		var form = $(this);
-		var formdata = $(this).serialize();
-		var chack = $('#form-chack');
-
-		function reset_form(){
-		 	$("#name").val('');
-			$("#email").val('');
-			$("#massage").val('');
-		} 
-
-		$.ajax({
-			url:  $(form).attr('action'),
-			type: 'POST',
-			data: formdata,
-			success : function(text){
-	            if (text == "success"){
-	            	$('#form-chack').fadeIn(400);
-	            	reset_form();
-	                chack.text("Your message has been sent :)"); // Message Send Text
-	                chack.removeClass('error');
-					chack.addClass('send');
-					$('#form-chack').fadeOut(8000);
-
-	            } else {
-	            	$('#form-chack').fadeIn(400);
-	            	reset_form();
-	                chack.text("Oops! something wrong."); // Message Error Text
-					chack.removeClass('send');
-					chack.addClass('error');
-					$('#form-chack').fadeOut(8000);
-	            }
-	        }
-		});
-		e.preventDefault();
-	});
-
 
 
 	
